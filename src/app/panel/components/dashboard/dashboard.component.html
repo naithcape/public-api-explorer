@@ -1,0 +1,43 @@
+<div class="dashboard-container">
+  <div class="header">
+    <h1>Admin Dashboard</h1>
+    <button mat-raised-button color="warn" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </div>
+
+  <mat-card class="requests-card">
+    <mat-card-header>
+      <mat-card-title>Pending API Requests</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="card-grid">
+        <mat-card class="request-card" *ngFor="let request of pendingRequests">
+          <mat-card-header>
+            <mat-card-title>{{ request.name }}</mat-card-title>
+            <mat-card-subtitle>ID: {{ request.id }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Link:</strong> <a [href]="request.link" target="_blank">{{ request.link }}</a></p>
+            <p><strong>Description:</strong> {{ request.description }}</p>
+            <p><strong>Submitted:</strong> {{ request.submittedDate | date:'medium' }}</p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-icon-button color="primary" (click)="approveRequest(request)" matTooltip="Approve">
+              <mat-icon>check_circle</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="declineRequest(request)" matTooltip="Decline">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <div *ngIf="pendingRequests.length === 0" class="no-data">
+          <p>No pending API requests found.</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

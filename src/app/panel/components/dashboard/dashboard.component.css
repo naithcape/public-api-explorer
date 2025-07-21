@@ -1,0 +1,56 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.requests-card {
+  margin-bottom: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.request-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.request-card mat-card-content {
+  flex-grow: 1;
+}
+
+.request-card mat-card-header {
+  margin-bottom: 10px;
+}
+
+.request-card p {
+  margin: 8px 0;
+  word-break: break-word;
+}
+
+.request-card a {
+  color: #3f51b5;
+  text-decoration: none;
+}
+
+.request-card a:hover {
+  text-decoration: underline;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}
